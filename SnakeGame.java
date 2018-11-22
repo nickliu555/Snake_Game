@@ -33,7 +33,6 @@ public abstract class SnakeGame extends JPanel{
 	//walls
 	protected JPanel fillerH, fillerV, fillerV2;
 	
-	//students will write this!
 	public abstract void gameFrame();
 	
 	public SnakeGame()
@@ -115,9 +114,6 @@ public abstract class SnakeGame extends JPanel{
 		framey.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		framey.setVisible(true);
 		
-		
-		
-		//animate();
 	}
 	
 	
