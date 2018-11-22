@@ -11,7 +11,7 @@ public class ScoreRecord implements Comparable{
 		score =s;
 	}
 	
-	//line is a colon-delmited string like this...
+	// Line is a colon-delmited string like this:
 	//     username:time:score
 	public ScoreRecord(String line){
 		String[] stuff = line.split(":");
@@ -24,16 +24,12 @@ public class ScoreRecord implements Comparable{
 	public double getTime(){return time;}
 	public double getScore(){return score;}
 	
-	/**********  Write a pretty toString for output *************/
 	//User-friendly format
 	public String toString()
 	{
 		return "Username: "+userName+"; Time: "+time+"; Score: "+score +"\n";
 	}
 	
-	//Important:  YOu want the file to be in colon-delmitted format!
-	//   BECAUSE when you are creating a ScoreRecord, the constructor
-	//   assumes that the input you give it is in this format.
 	public String formatForFile()
 	{
 		return userName+":"+time+":"+score;
@@ -42,9 +38,6 @@ public class ScoreRecord implements Comparable{
 	@Override
 	//return a positive number is greater, negative is less
 	public int compareTo(Object other) {
-		//you MAY change this depending on how you want to keep score
-		
-		//you will need to cast him as a score record
 		ScoreRecord that = (ScoreRecord)other; 
 		if(this.score<that.score)
 			return -500;
