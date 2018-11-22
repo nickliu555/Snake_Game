@@ -6,19 +6,16 @@ import java.awt.event.*;
 
 public class Snake implements KeyListener{
 	public static final int UP=0, RIGHT=1, DOWN=2, LEFT=3;
-	//variables you will need
-	// 1) pointer to the first and/or last piece of the snake
 	public BodySegment first;
 	public BodySegment last;
 	private int num = 0;
-	// 2) a variable to keep track of what direction this snake is facing
 	public int direction;
 	
 	public Snake()
 	{
-		//go ahead and give him 1 BodySegment
+		// give him 1 BodySegment
 		this.addFirst();
-		//tell him what direction he is moving	
+		// tell him what direction he is moving	
 		direction = RIGHT; 
 		
 	}
