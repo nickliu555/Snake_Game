@@ -7,29 +7,27 @@ import java.text.DecimalFormat;
 import java.util.*;
 
 public class ScoreFrame extends JFrame{
-	/** MAIN FOR TESTING PURPOSES (so you don't have to play snake so many times)
-	 you can just manually change the score record that is being constructed
-	 run this ScoreFrame.java & check that the record is inserted correctly!
-	**/
+	// MAIN USED FOR TESTING PURPOSES
+	
 	public static void main(String[] args){new ScoreFrame(new ScoreRecord("Testing",1,-1));}
 	
 	//private member variables
-	public static final String FILEDIR = "C:/LiuSnakeScores";//<<<<<<<Change this to include your last name
+	public static final String FILEDIR = "C:/LiuSnakeScores";//<<<<<<<Change this to directory
 	public static final String FILENAME = "topScores.txt";
 	public static final String OUTPUTFILENAME = "topScores.txt";
 	public static final int WIDTH = 500, HEIGHT = 700;
 	
 	//private OrderedList theScores;
-	private JTextArea display; //you will append the scores into here 
+	private JTextArea display; // Append the scores into here 
 	private JScrollPane scrolly;
 	
-	ScoreRecord current; //the score record for the current game
+	ScoreRecord current; // the score record for the current game
 	
-	/** !!  you will need to declare some type of List to store all of the scores into !!**/
+	// List to store all of the scores into
 	private OrderedList oldScores;
 	
 	
-	//Pass in the scoreRecord for the current game!
+	// Pass in the scoreRecord for the current game
 	public ScoreFrame( ScoreRecord scoreFromThisGame ){
 		super("Top Scores");		
 		current = scoreFromThisGame;
@@ -37,7 +35,6 @@ public class ScoreFrame extends JFrame{
 		oldScores = new OrderedList();
 		display = new JTextArea();
 		display.setEditable(false);
-		//display.setText("You will display the top scores here!");
 		scrolly = new JScrollPane( display );
 		
 		readFromFile();
@@ -57,28 +54,25 @@ public class ScoreFrame extends JFrame{
 		try{		
 			BufferedReader br = openFileForReading();
 			if(br!=null)
-			{//if the file exists, read from it
-				//Now you can br.readLine() to grab the next line from the file!
-				//when there is no more left in the file, br.readLine will give you null
+			{// if the file exists, read from it
+				// Now you can br.readLine() to grab the next line from the file!
+				// when there is no more left in the file, br.readLine will give you null
 				String input = br.readLine();
 				while(input!=null)
 				{
-					//System.out.println(input);
 					oldScores.add( new ScoreRecord(input) );
 					input = br.readLine();
 				}
 				
-			
-				//don't forget to do this when you are done!
 				br.close();
 			}
 			
 		}		
 		catch(Exception ex){ex.printStackTrace();}
 		
-		//put the current record in the correct spot in your data structure
+		// put the current record in the correct spot in your data structure
 		oldScores.add(current);
-		//display each record <using display.append()>
+		// display each record <using display.append()>
 		OrderedListNode curr = oldScores.getFirst();
 		while(curr!=null)
 		{
@@ -90,17 +84,13 @@ public class ScoreFrame extends JFrame{
 
 	}
 
-	//this function will:
-	//1) Write each of the ScoreRecords out into the file
-	//   Be sure that they are in a colon-delimited format
+	// This function will write each of the ScoreRecords out into the file
 	public void writeToFile(){
 		try{			
 			PrintWriter out = openFileForWriting();
 			//now you can out.println(?) to write something to the file
 			out.print(oldScores.toFileString());
 			
-			
-			//don't forget to do this!
 			out.close();
 		}
 		catch(Exception ex){
@@ -110,7 +100,7 @@ public class ScoreFrame extends JFrame{
 	}
 	
 	/**********************************************************************/
-	/**Don't mess with these functions down here.  But you can call them **/
+	
 	private BufferedReader openFileForReading(){
 		FileReader reeder;
 		BufferedReader br=null;		
