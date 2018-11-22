@@ -8,16 +8,15 @@ import javax.swing.JOptionPane;
 public class MyGame extends SnakeGame
 {
 	private boolean gameover;
-	//things you inherited from SnakeGame
-	//protected Snake player;
-	//protected BodySegment food;
-	//protected double waitSeconds;
+	//Things inherited from SnakeGame:
+	// protected Snake player;
+	// protected BodySegment food;
+	// protected double waitSeconds;
 	private int timeDiff;
 	
 	public MyGame()
 	{
 		super();
-		//setBG(new Color(100,100,0));
 		setBG(Color.BLACK); //background color is Black
 		setGridColor( new Color(0,255,255,100)); //the grid color is initially turquoise
 		
@@ -42,12 +41,10 @@ public class MyGame extends SnakeGame
 			player.addFirst(); //adds a head
 			player.removeLast(); //cuts of tail
 			drawGame();//do this at some point	
-			//System.out.println(player.size());
 			
 			//timer
 			double currTime = System.currentTimeMillis() / 1000.0;
 			timeDiff = (int)(currTime - startTime);
-			//System.out.println(currTime - startTime);
 			int millisec = (int)( ( (currTime - startTime) - timeDiff ) * 100 );
 			int min = 0;
 			int sec = 0;
@@ -92,7 +89,6 @@ public class MyGame extends SnakeGame
 						name = System.getProperty("user.name"); 
 					new ScoreFrame(new ScoreRecord(name,timeDiff,player.size()-3)); //add the score
 					gameover = true;
-					//System.exit(0);
 				}
 				curr = curr.getNext();
 			}
@@ -108,7 +104,6 @@ public class MyGame extends SnakeGame
 					name = System.getProperty("user.name");
 				new ScoreFrame(new ScoreRecord(name,timeDiff,player.size()-3)); //add the score
 				gameover = true;
-				//System.exit(0);
 			}
 			
 			food.setRandomHue();
