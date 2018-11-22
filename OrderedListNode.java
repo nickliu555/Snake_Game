@@ -1,7 +1,7 @@
 //package complete;
 
 public class OrderedListNode {
-	private Comparable value; //will probably be a ScoreRecord
+	private Comparable value; // will be a ScoreRecord
 	private OrderedListNode next;
 	
 	//CONSTRUCTORS
