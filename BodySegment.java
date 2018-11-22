@@ -4,9 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class BodySegment {
-	//this BodySegment will act like a NODE
-	//  he will point to the next BodySegment in the Snake
-	//  You will need a variable for this
+	// this BodySegment will act like a NODE
+	//  will point to the next BodySegment in the Snake
 	
 	public static final int SIZE=15;
 	public Color hue = Color.green;
